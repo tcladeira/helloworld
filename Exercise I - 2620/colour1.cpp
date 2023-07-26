@@ -9,8 +9,8 @@ void sort (string A[], int n){
     string colourtemp;
 
     for (int i = 0; i < n - 1; ++i){
-        for (int j = 0; j > n - i - 1; ++j){
-            if (A[j] < A[j +1]){
+        for (int j = 0; j < n - i - 1; ++j){
+            if (A[j] > A[j +1]){
                 colourtemp = A[j];
                 A[j] = A[j +1];
                 A[j+1] = colourtemp;
