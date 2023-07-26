@@ -2,7 +2,7 @@
 using namespace std;
 
 
-
+//Main functions of the code;
 void sort( string A[], int n){
 
 }
@@ -26,7 +26,7 @@ string *resize (string *A, int n){
 void search_and_report (const string A[], int n, string colour, string label, 
             bool (*search) (const string A[], int n, string colour, int &count)){
     
-    
+
     }    
 
 
