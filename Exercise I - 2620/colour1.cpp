@@ -7,7 +7,6 @@ using namespace std;
 void sort (string A[], int n){
 
     string colourtemp;
-    colourtemp = A[i];
 
     for (int i = 0; i < n - 1; ++i){
         for (int j = 0; j < n - i - 1; ++j){
@@ -53,9 +52,16 @@ int main (){
     int n = 0;
     cin >> n;
     string arr[n];
+    for (int i = 0; i < n - 1; ++i){
+        cin >> arr[i];
 
-    cout << sort(arr[n], n);
-    
+    }
+    sort (arr, n);
+
+    for (int i = 0; i < n - 1; ++i){
+        cout << arr[i] << endl;
+    }
+
 
  
 
