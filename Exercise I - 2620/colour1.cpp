@@ -50,6 +50,7 @@ void search_and_report (const string A[], int n, string colour, string label,
 int main (){
 
     int n = 0;
+    cout << "Type number of elements in the array" << endl;
     cin >> n;
     string arr[n];
     for (int i = 0; i < n - 1; ++i){
@@ -57,9 +58,9 @@ int main (){
 
     }
     sort (arr, n);
-
+    cout << "This are the colours in alphabetic order" << endl;
     for (int i = 0; i < n - 1; ++i){
-        cout << arr[i] << endl;
+        cout << ". " << arr[i] << endl;
     }
 
 
