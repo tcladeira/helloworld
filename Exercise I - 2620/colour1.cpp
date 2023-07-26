@@ -53,13 +53,13 @@ int main (){
     cout << "Type number of elements in the array" << endl;
     cin >> n;
     string arr[n];
-    for (int i = 0; i < n - 1; ++i){
+    for (int i = 0; i < n; ++i){
         cin >> arr[i];
 
     }
     sort (arr, n);
     cout << "This are the colours in alphabetic order" << endl;
-    for (int i = 0; i < n - 1; ++i){
+    for (int i = 0; i < n; ++i){
         cout << ". " << arr[i] << endl;
     }
 
