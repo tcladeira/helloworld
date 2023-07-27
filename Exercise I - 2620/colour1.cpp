@@ -21,12 +21,22 @@ void sort (string A[], int n){
 }
 
 
-/*bool linear_search (const string A[], int n, string colour, int &count){
+bool linear_search (const string A[], int n, string colour, int &count){
     
+    for (int i = 0; i < n; ++i){
+        if (A[i] == colour){
+        return true;
+    }
+        else (){
+        *count = *count + 1;
+        
+    }
+    }
     
-    return;
 }
-bool binary_search (const string A[],int n, string colour, int &count){
+
+
+/*bool binary_search (const string A[],int n, string colour, int &count){
     
     
     return;
@@ -50,7 +60,7 @@ void search_and_report (const string A[], int n, string colour, string label,
 int main (){
 
     int n = 0;
-    cout << "Type number of elements in the array" << endl;
+    cout << "Enter a colour ($ when it is done): " << endl;
     cin >> n;
     string arr[n];
     for (int i = 0; i < n; ++i){
@@ -62,14 +72,6 @@ int main (){
     for (int i = 0; i < n; ++i){
         cout << ". " << arr[i] << endl;
     }
-
-
- 
-
-
-
-
-
 
 
     return 0;
