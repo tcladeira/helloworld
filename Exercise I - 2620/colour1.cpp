@@ -14,8 +14,7 @@ void sort (string A[], int n){
                 colourtemp = A[j];
                 A[j] = A[j +1];
                 A[j+1] = colourtemp;
-        }
-
+            }
         }
     }
 }
@@ -26,22 +25,36 @@ bool linear_search (const string A[], int n, string colour, int &count){
     for (int i = 0; i < n; ++i){
         if (A[i] == colour){
         return true;
-    }
+        }
         else (){
         *count = *count + 1;
         
+        }
     }
-    }
-    
 }
 
 
-/*bool binary_search (const string A[],int n, string colour, int &count){
-    
-    
-    return;
+bool binary_search (const string A[],int n, string colour, int &count){
+    int left = 0;
+    int right = n - 1;
+
+    while (left <= right){
+        int mid = left + (right - left) / 2;
+        *count = *count + 1;
+        if (A[mid] == colour){
+            return true;
+        }
+        else if (A[mid] < colour){
+        left = mid + 1;
+        }
+        else {
+            left = mid - 1;
+        }
+    }
 }
-string *resize (string *A, int n){
+
+
+/*string *resize (string *A, int n){
     
     
     return;
