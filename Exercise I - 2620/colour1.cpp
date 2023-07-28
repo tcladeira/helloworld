@@ -1,10 +1,52 @@
+//Student = Thiago Ladeira - CPSC 2620 - Exercise I
+// tc.ladeira@uleth.ca
+
 #include <iostream>
 #include <cstdlib>
 #include <string>
 using namespace std;
 
 
-//Main functions of the code; Remember to make them headlines and send the function definition after int-main()
+//Functions headlines. Push the descriptions to the end of the program.
+
+void sort (string A[], int n);
+bool linear_search (const string A[], int n, string colour, int &count);
+bool binary_search (const string A[],int n, string colour, int &count);
+string *resize (string *A, int n);
+
+//I was not able to implement the last function, on both files.
+// void search_and_report (const string A[], int n, string colour, string label, 
+//             bool (*search) (const string A[], int n, string colour, int &count)){
+// }  
+
+
+//I could implement the search functions in this file. Several problems with the arrays.
+
+
+
+int main (){
+
+    const int INIT_SIZE = 1;
+    string *arr = new string[INIT_SIZE];
+
+    int i = 0;
+    cout << "Enter a colour ($ when it is done): " << endl;
+    getline(cin, arr[0]);
+    while (arr[i] != "$"){
+        arr = resize(arr, i + 1);
+        cout << "Enter a colour ($ when it is done): " << endl;
+        getline(cin, arr[i + 1]);
+        ++i;
+    }
+
+    int sizeofArr = sizeof(arr) / sizeof(arr[0]);
+    sort (arr, sizeofArr);
+
+
+    return 0;
+}
+
+//This are the functions definitions:
 
 void sort (string A[], int n){
 
@@ -21,7 +63,6 @@ void sort (string A[], int n){
     }
 }
 
-
 bool linear_search (const string A[], int n, string colour, int &count){
     for (int i = 0; i < n; ++i){
         if (A[i] == colour){
@@ -33,7 +74,6 @@ bool linear_search (const string A[], int n, string colour, int &count){
         }
     }
 }
-
 
 bool binary_search (const string A[],int n, string colour, int &count){
     int left = 0;
@@ -55,7 +95,6 @@ bool binary_search (const string A[],int n, string colour, int &count){
     }
 }
 
-
 string *resize (string *A, int n){
     string *newArray = new string[n + 1];
     for (int i = 0; i < n; ++i){
@@ -63,44 +102,4 @@ string *resize (string *A, int n){
     }
     delete[] A;    
     return newArray;
-}
-
-
-// void search_and_report (const string A[], int n, string colour, string label, 
-//             bool (*search) (const string A[], int n, string colour, int &count)){
-    
-
-//     }    
-
-
-
-
-
-
-int main (){
-
-    const int SIZE_STRING = 1;
-    string *arr = new string (SIZE_STRING);
-
-    int i = 0;
-    cout << "Enter a colour ($ when it is done): " << endl;
-    getline(cin, arr[0]);
-    while (arr[i] != "$"){
-        arr = resize(arr, i + 1);
-        cout << "Enter a colour ($ when it is done): " << endl;
-        getline(cin, arr[i + 1]);
-        ++i;
-    }
-
-    int sizeofArr = sizeof(arr) / sizeof(arr[0]);
-    sort (arr, sizeofArr);
-
-
-    cout << "This are the colours in alphabetic order" << endl;
-    for (int i = 0; i < sizeofArr; ++i){
-        cout << ". " << arr[i] << endl;
-    }
-
-
-    return 0;
 }

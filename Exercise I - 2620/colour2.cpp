@@ -11,7 +11,7 @@ using namespace std;
 void sort(vector<string>& vec);
 bool linear_search (vector<string> vec, string colour, int& count);
 bool binary_search (vector<string> vec, string colour, int& count);
-//string resize(vector<string> vec, int nSize);
+void resize (vector<string>& vec, int nSize);
 
 //I could not implement the last function, in both files.
 // void search_and_report(const string A[], int n, string colour, string label, bool (*search)(const string A[], int n, string colour, int &count));
@@ -28,14 +28,16 @@ int main () {
     int countL = 0;
     int countB = 0;
 
-    
+    //first block it ask for the colours to fill the vector
     while (vec.at(i) != "$"){
         cout << "Enter a colour name ($ when done): ";
         getline(cin, colour);
         vec.push_back(colour);
         ++i;
     }
+    //now, call the function pop_back to delete '$' from the vector
     vec.pop_back();
+    //use sort function to organizae the vector alphabetically
     sort (vec);
     for (int i = 0; i < vec.size(); ++i){
         cout << vec.at(i) << " " << endl;
@@ -44,9 +46,12 @@ int main () {
     while (colourtoSearch != "$"){
         cout << "Enter a colour to search for (type $ to quit): " << endl;
         getline(cin, colourtoSearch);
+        if (colourtoSearch == "$"){         //this line I add a break so the function does not search for $
+            break;
+        }
         linear_search(vec, colourtoSearch, countL);
         binary_search(vec, colourtoSearch, countB);
-        if ((linear_search(vec, colourtoSearch, countL) == true) && (binary_search(vec, colourtoSearch, countB) == true)){
+        if ((linear_search(vec, colourtoSearch, countL) == true)){
             cout << "Linear Search: found, comparison " << countL << endl;
             cout << "Binary Search: found, comparison " << countB  << endl;
         }
@@ -56,13 +61,11 @@ int main () {
         }
     }
 
-
-
-
     return 0;
 
 }
 
+//Here are the functions definitions:
 void sort(vector<string>& vec){
     string colourtemp;
     for (int i = 0; i < vec.size() - 1; ++i){
@@ -76,7 +79,6 @@ void sort(vector<string>& vec){
     }
 }
 
-
 bool linear_search (vector<string> vec, string colour, int& count){
     count = 0;
     for (int i = 0; i < vec.size() - 1; ++i){
@@ -86,6 +88,7 @@ bool linear_search (vector<string> vec, string colour, int& count){
             break;
         }
     }
+    return false;
 }
 
 bool binary_search (vector<string> vec, string colour, int& count){
@@ -107,15 +110,13 @@ bool binary_search (vector<string> vec, string colour, int& count){
             left = mid - 1;
         }
     }
+
+    return false;
 }
 
-// string resize(vector<string> vec, int nSize){
-//     for (int i = 0; i < nSize; ++i){
-
-//     }
-//  }
-
-// void search_and_report(const string A[], int n, string colour, string label, bool (*search)(const string A[], int n, string colour, int &count)){
-
-// }
+void resize(vector<string>& vec, int nSize){
+    for (int i = 0; i < nSize; ++i){
+        vec.push_back(" ");
+    }
+ }
 
