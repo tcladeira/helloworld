@@ -58,7 +58,7 @@ bool binary_search (const string A[],int n, string colour, int &count){
 string *resize (string *A, int n){
     string *newArray;
     newArray = (string*) malloc(sizeof(string) * n + 1);
-    for (int i = o; i < n; ++i){
+    for (int i = 0; i < n; ++i){
         newArray[i] = A[i]; 
     }
     free(A);    
@@ -84,9 +84,9 @@ int main (){
 
     int n = 0;
     cout << "Enter a colour ($ when it is done): " << endl;
-    for (int i = 0; arr[i] != '$'; ++i){
+    for (int i = 0; arr[i] != "$"; ++i){
         cin >> arr[i];
-        arr = resize (arr, i)
+        arr = resize (arr, i);
     }
     sort (arr, n);
     cout << "This are the colours in alphabetic order" << endl;
