@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <string>
 using namespace std;
 
 
@@ -56,12 +57,11 @@ bool binary_search (const string A[],int n, string colour, int &count){
 
 
 string *resize (string *A, int n){
-    string *newArray;
-    newArray = (string*) malloc(sizeof(string) * n + 1);
+    string *newArray = new string[n + 1];
     for (int i = 0; i < n; ++i){
         newArray[i] = A[i]; 
     }
-    free(A);    
+    delete[] A;    
     return newArray;
 }
 
@@ -79,18 +79,25 @@ string *resize (string *A, int n){
 
 int main (){
 
-    string *arr = (string*) malloc(sizeof(string));
+    const int SIZE_STRING = 1;
+    string *arr = new string (SIZE_STRING);
 
-
-    int n = 0;
+    int i = 0;
     cout << "Enter a colour ($ when it is done): " << endl;
-    for (int i = 0; arr[i] != "$"; ++i){
-        cin >> arr[i];
-        arr = resize(arr, i);
+    getline(cin, arr[0]);
+    while (arr[i] != "$"){
+        arr = resize(arr, i + 1);
+        cout << "Enter a colour ($ when it is done): " << endl;
+        getline(cin, arr[i + 1]);
+        ++i;
     }
-    sort (arr, n);
+
+    int sizeofArr = sizeof(arr) / sizeof(arr[0]);
+    sort (arr, sizeofArr);
+
+
     cout << "This are the colours in alphabetic order" << endl;
-    for (int i = 0; i < n; ++i){
+    for (int i = 0; i < sizeofArr; ++i){
         cout << ". " << arr[i] << endl;
     }
 
