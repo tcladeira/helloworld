@@ -17,8 +17,6 @@ void resize (vector<string>& vec, int nSize);
 // void search_and_report(const string A[], int n, string colour, string label, bool (*search)(const string A[], int n, string colour, int &count));
 
 
-
-
 int main () {
     string colour;
     vector<string> vec(1);
