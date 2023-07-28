@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 
@@ -54,31 +55,38 @@ bool binary_search (const string A[],int n, string colour, int &count){
 }
 
 
-/*string *resize (string *A, int n){
-    
-    
-    return;
+string *resize (string *A, int n){
+    string *newArray;
+    newArray = (string*) malloc(sizeof(string) * n + 1);
+    for (int i = o; i < n; ++i){
+        newArray[i] = A[i]; 
+    }
+    free(A);    
+    return newArray;
 }
-void search_and_report (const string A[], int n, string colour, string label, 
-            bool (*search) (const string A[], int n, string colour, int &count)){
+
+
+// void search_and_report (const string A[], int n, string colour, string label, 
+//             bool (*search) (const string A[], int n, string colour, int &count)){
     
 
-    }    
+//     }    
 
-*/
+
 
 
 
 
 int main (){
 
+    string *arr = (string*) malloc(sizeof(string));
+
+
     int n = 0;
     cout << "Enter a colour ($ when it is done): " << endl;
-    cin >> n;
-    string arr[n];
-    for (int i = 0; i < n; ++i){
+    for (int i = 0; arr[i] != '$'; ++i){
         cin >> arr[i];
-
+        arr = resize (arr, i)
     }
     sort (arr, n);
     cout << "This are the colours in alphabetic order" << endl;
