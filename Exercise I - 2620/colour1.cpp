@@ -21,13 +21,12 @@ void sort (string A[], int n){
 
 
 bool linear_search (const string A[], int n, string colour, int &count){
-    
     for (int i = 0; i < n; ++i){
         if (A[i] == colour){
         return true;
         }
-        else (){
-        *count = *count + 1;
+        else {
+        count = count + 1;
         
         }
     }
@@ -40,9 +39,10 @@ bool binary_search (const string A[],int n, string colour, int &count){
 
     while (left <= right){
         int mid = left + (right - left) / 2;
-        *count = *count + 1;
+        count = count + 1;
         if (A[mid] == colour){
             return true;
+            left = right;
         }
         else if (A[mid] < colour){
         left = mid + 1;
