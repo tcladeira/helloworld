@@ -7,5 +7,4 @@ colour2: colour2.cpp
 	g++ colour2.cpp -o colour2
 
 clean:
-	rm colour1
-	rm colour2
+	rm colour1 colour2
