@@ -1,15 +1,19 @@
+//Student = Thiago Ladeira - CPSC 2620 - Exercise I
+// tc.ladeira@uleth.ca
+
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 
-//functions here:
-
+//This are the functions headlines:
 
 void sort(vector<string>& vec);
 bool linear_search (vector<string> vec, string colour, int& count);
 bool binary_search (vector<string> vec, string colour, int& count);
-// string *resize(string *A, int n);
+//string resize(vector<string> vec, int nSize);
+
+//I could not implement the last function, in both files.
 // void search_and_report(const string A[], int n, string colour, string label, bool (*search)(const string A[], int n, string colour, int &count));
 
 
@@ -41,9 +45,15 @@ int main () {
         cout << "Enter a colour to search for (type $ to quit): " << endl;
         getline(cin, colourtoSearch);
         linear_search(vec, colourtoSearch, countL);
-        cout << "Linear Search: found, comparison " << countL << endl;
         binary_search(vec, colourtoSearch, countB);
-        cout << "Binary Search: found, comparison " << countB  << endl;
+        if ((linear_search(vec, colourtoSearch, countL) == true) && (binary_search(vec, colourtoSearch, countB) == true)){
+            cout << "Linear Search: found, comparison " << countL << endl;
+            cout << "Binary Search: found, comparison " << countB  << endl;
+        }
+        else {
+            cout << "Linear Search: not found, comparison " << countL << endl;
+            cout << "Binary Search: not found, comparison " << countB  << endl;
+        }
     }
 
 
@@ -68,20 +78,20 @@ void sort(vector<string>& vec){
 
 
 bool linear_search (vector<string> vec, string colour, int& count){
+    count = 0;
     for (int i = 0; i < vec.size() - 1; ++i){
         count = count + 1;
         if (vec.at(i) == colour){
             return true;
+            break;
         }
-     
     }
-    return true;
 }
 
 bool binary_search (vector<string> vec, string colour, int& count){
     int left = 0;
     int right = vec.size() - 1;
-    int counter = 0;
+    count = 0;
     int i = 0;
     while (left <= right){
         count = count + 1;
@@ -99,9 +109,11 @@ bool binary_search (vector<string> vec, string colour, int& count){
     }
 }
 
-// string *resize(string *A, int n){
+// string resize(vector<string> vec, int nSize){
+//     for (int i = 0; i < nSize; ++i){
 
-// }
+//     }
+//  }
 
 // void search_and_report(const string A[], int n, string colour, string label, bool (*search)(const string A[], int n, string colour, int &count)){
 
