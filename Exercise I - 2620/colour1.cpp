@@ -86,7 +86,7 @@ int main (){
     cout << "Enter a colour ($ when it is done): " << endl;
     for (int i = 0; arr[i] != "$"; ++i){
         cin >> arr[i];
-        arr = resize (arr, i);
+        arr = resize(arr, i);
     }
     sort (arr, n);
     cout << "This are the colours in alphabetic order" << endl;
