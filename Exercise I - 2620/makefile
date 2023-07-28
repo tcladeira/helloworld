@@ -1,4 +1,4 @@
-all: colour1, colour2
+all: colour1 colour2
 
 colour1: colour1.cpp
 	g++ colour1.cpp -o colour1
@@ -8,3 +8,4 @@ colour2: colour2.cpp
 
 clean:
 	rm colour1
+	rm colour2
